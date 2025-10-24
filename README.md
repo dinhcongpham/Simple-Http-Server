@@ -29,23 +29,10 @@ Designed for learning and understanding how real HTTP servers work under the hoo
 
 ---
 
-## 📘 Example Usage
+## 🧠 Learning Highlights
 
-```java
-public static void main(String[] args) {
-    HttpServer server = new HttpServer(8080);
-
-    // Middleware
-    server.use(new LoggingMiddleware());
-    server.use(new CORSMiddleware());
-
-    // Routes
-    server.get("/", (req, res) -> res.sendText("Welcome to Simple HTTP Server!"));
-    server.get("/hello", (req, res) -> res.sendJson("{\"message\":\"Hello, world!\"}"));
-
-    // Serve static files from /public
-    server.use(new StaticFileHandler("public"));
-
-    server.start();
-}
-```
+This project was built to deepen understanding of:
+- TCP socket programming and connection lifecycle
+- HTTP protocol (request parsing, response formatting, headers, methods)
+- Thread management for concurrent connections
+- Middleware and routing patterns found in modern web frameworks
