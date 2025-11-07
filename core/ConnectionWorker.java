@@ -28,7 +28,6 @@ public class ConnectionWorker implements Runnable {
       ResponseWriter.write(out, response);
 
     } catch (Exception e) {
-      // Best-effort minimal 500 response if pipeline-level error escapes
       try (OutputStream out = socket.getOutputStream()) {
         ResponseWriter.write(out, HttpResponse.internalServerError("Internal Server Error"));
       } catch (IOException ignored) {

@@ -34,5 +34,4 @@ Designed for learning and understanding how real HTTP servers work under the hoo
 This project was built to deepen understanding of:
 - TCP socket programming and connection lifecycle
 - HTTP protocol (request parsing, response formatting, headers, methods)
-- Thread management for concurrent connections
 - Middleware and routing patterns found in modern web frameworks

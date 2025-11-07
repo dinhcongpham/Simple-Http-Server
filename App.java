@@ -13,18 +13,18 @@ import routing.Router;
 public class App {
   public static void main(String[] args) throws Exception {
     Router router = new Router()
-        .get("/", new HelloHandler("MiniSrv OK"))
+        .get("/", new HelloHandler("Hello, World!"))
         .get("/hello/{name}", new HelloHandler("Hello"))
         .get("/assets/{*path}", new StaticFileHandler(Path.of("public")));
 
     HttpHandler app = Pipeline
-        .start(router) // terminal handler (Router)
-        .through(new CorsMiddleware()) // optional
+        .start(router)
+        .through(new CorsMiddleware())
         .through(new LoggingMiddleware())
-        .through(new ErrorHandlingMiddleware()) // should be last added, wraps others
+        .through(new ErrorHandlingMiddleware())
         .build();
 
     HttpServer server = new HttpServer(8080, app);
-    server.start(); // Ctrl+C to stop
+    server.start();
   }
 }
